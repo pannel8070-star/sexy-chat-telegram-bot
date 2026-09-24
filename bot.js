@@ -2,6 +2,18 @@ const TelegramBot = require('node-telegram-bot-api');
 const { Octokit } = require("@octokit/rest");
 const axios = require('axios');
 const fs = require('fs');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Ek simple web page, taaki Render ko lage ki server chal raha hai
+app.get('/', (req, res) => {
+    res.send('Bot is running 24/7! 🚀');
+});
+
+app.listen(port, () => {
+    console.log(`Dummy web server listening on port ${port}`);
+});
 
 // --- CONFIGURATION ---
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
